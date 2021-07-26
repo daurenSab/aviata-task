@@ -1,5 +1,5 @@
 <template>
-  <div class="filter__wrapper">
+  <div class="filter">
     <div class="filter__title">{{ title }}</div>
     <ul class="filter__options-list">
       <li v-if="hasAllOption">
@@ -62,10 +62,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .filter {
-  &__wrapper {
-    background: #F5F5F5;
-    border-radius: 4px;
-  }
+  background: #F5F5F5;
+  border-radius: 4px;
 
   &__title {
     font-weight: bold;

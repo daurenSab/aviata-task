@@ -1,5 +1,5 @@
 <template>
-  <div class="filter__wrapper">
+  <div class="filter">
     <Filter title="Опции тарифа" @filterToggled="filteredByTariffs($event)" class="mb-12"
             :options="tariffFilters"></Filter>
     <Filter title="Авиакомпании" @filterToggled="filteredByAirlines($event)" :hasAllOption="true"
@@ -33,13 +33,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 .filter {
-  &__wrapper {
     max-width: 240px;
     width: 100%;
     position: sticky;
-    top: 0;
+    top: 20px;
     height: fit-content;
-  }
 
   &__reset {
     font-size: 12px;

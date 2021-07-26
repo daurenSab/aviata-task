@@ -1,5 +1,5 @@
 <template>
-  <div class="flight__wrapper">
+  <div class="flight">
     <div class="flight__info-zone">
       <div class="flight__info-zone--main">
         <div class="d-flex align-items-center">
@@ -31,7 +31,7 @@
           </div>
 
           <div class="transfer" v-if="metaLayovers.length">
-            <div v-for="(meta, idx) in metaLayovers" :key="idx">{{meta}}</div>
+            <div v-for="(meta, idx) in metaLayovers" :key="idx">{{ meta }}</div>
           </div>
         </div>
 
@@ -170,16 +170,14 @@ export default {
 }
 
 .flight {
-  &__wrapper {
-    background: #FFFFFF;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
-    height: 168px;
-    width: 100%;
-    display: flex;
-    margin: 0 0 12px 20px;
-    justify-content: space-between;
-  }
+  background: #FFFFFF;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  height: 168px;
+  width: 100%;
+  display: flex;
+  margin-bottom: 12px;
+  justify-content: space-between;
 
   &__link {
     opacity: 0.5;
@@ -189,6 +187,7 @@ export default {
     color: #7284E4;
     padding-bottom: 2px;
     margin-right: 24px;
+    text-decoration: none;
   }
 
   &__buy-zone {

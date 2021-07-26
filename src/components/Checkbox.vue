@@ -1,8 +1,8 @@
 <template>
-  <label class="checkbox__wrapper">
+  <label class="checkbox">
     {{ text }}
-    <input type="checkbox" @change="$emit('input', $event)" :checked="checked">
-    <span class="checkmark"></span>
+    <input type="checkbox" class="checkbox__input" @change="$emit('input', $event)" :checked="checked">
+    <span class="checkbox__checkmark"></span>
   </label>
 </template>
 <script>
@@ -20,7 +20,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.checkbox__wrapper {
+.checkbox {
   display: flex;
   align-items: center;
   position: relative;
@@ -31,14 +31,14 @@ export default {
   width: 100%;
   height: 100%;
 
-  & input {
+  &__input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
     height: 0;
     width: 0;
 
-    &:checked ~ .checkmark {
+    &:checked ~ .checkbox__checkmark {
       background-color: #55BB06;
       border: none;
 
@@ -51,7 +51,7 @@ export default {
   }
 
   &:hover{
-    & input:checked ~ .checkmark {
+    .checkbox__input:checked ~ .checkbox__checkmark {
       background-color: #55BB06;
 
       &:after {
@@ -61,10 +61,11 @@ export default {
         left: 5px;
         height: 7px;
         border-width: 0 2px 0 0;
+        border-color: #fff;
       }
     }
 
-    & .checkmark:after {
+    & .checkbox__checkmark:after {
       display: block;
       border-color: gray;
       opacity: 1;
@@ -75,22 +76,11 @@ export default {
       border-style: solid;
       border-width: 0 2px 2px 0;
       transform: rotate(45deg);
-      transition: all 0.5s;
+      transition: all 0.3s;
     }
   }
 
-  & .checkmark:after {
-    left: 4px;
-    top: 1px;
-    width: 2px;
-    height: 6px;
-    border-style: solid;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-    transition: all 0.2s;
-  }
-
-  & .checkmark {
+  & .checkbox__checkmark {
     position: absolute;
     top: calc(50% - 6px);
     left: 0;
@@ -106,6 +96,14 @@ export default {
       content: "";
       position: absolute;
       opacity: 0;
+      left: 4px;
+      top: 1px;
+      width: 2px;
+      height: 6px;
+      border-style: solid;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      transition: all 0.2s;
     }
   }
 }
